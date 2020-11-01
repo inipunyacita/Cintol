@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Web Desgin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins';
+        }
+        input {
+            width: 300px;
+            height: 20px;
+            text-align: center;
+            margin: 10px 0 10px 0;
+        }
+        .container {
+            width: 500px;
+            height: 500px;
+            margin: 10% auto;
+            background-color: antiquewhite;
+            text-align: center;
+        }
+        button {
+            width: 200px;
+            height: 30px;
+            padding: 5px;
+            margin: 10px 0 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <input type="text" name="" id="angka1" placeholder="Masukan Angka Pertama">
+        <input type="text" name="" id="angka2" placeholder="Masukan Angka Kedua">
+        <button onclick="kpkfak()">Hasil KPK</button>
+        <br> <br>
+        <h1>Hasil KPK : <span id="result"></span></h1>
+        <br> <br>
+
+        <input type="text" name="" id="angkafkt" placeholder="Masukan Angka untuk Faktorial">
+        <button onclick="faktorial()">Hasil Faktorial</button>
+        <h1>Hasil Faktorial : <span id="resultfkt"></span></h1>
+    </div>
+
+    <script>
+    let angka1 = document.querySelector('#angka1');
+    let angka2 = document.querySelector('#angka2');
+    let hasil = document.querySelector('#result'); 
+
+    let angkafkt = document.querySelector('#angkafkt');
+
+        function faktorial() {
+            a = document.querySelector('#angkafkt').value;
+       let hasil=1;
+       if (a < 0){
+           hasil = "Masukan Angka diatas 1";
+       } else{
+           let i ;
+           for(i=1;i<=a;i++){
+               hasil *= i;
+           }
+       }
+
+       has = document.querySelector('#resultfkt').innerHTML = hasil;
+        }
+
+        function kpkfak() {
+            let i, kpk;
+            let a = angka1.value;
+            let b = angka2.value;
+
+            if (a > b) {
+                i = a;
+                a = b;
+                b = i;
+               }
+           
+            for (i = b; i % a != 0 || i % b != 0; i++);
+            kpk = i;
+            hasil.innerHTML = i;       
+        }
+    </script>
+</body>
+</html>
